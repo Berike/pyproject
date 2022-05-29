@@ -13,7 +13,7 @@ def start(message):
         markup.add(item1)
         markup.add(item2)
 
-        bot.send_message('Привет, что будем делать?' ,  reply_markup=markup)
+        bot.send_message(message.chat.id, 'Привет, что будем делать?' ,  reply_markup=markup)
 # Получение сообщений от юзера
 @bot.message_handler(content_types=["text"])
 def bot_message(message):
