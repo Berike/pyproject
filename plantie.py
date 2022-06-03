@@ -2,7 +2,7 @@ import telebot
 from telebot import types
 
 
-bot = telebot.TeleBot('')
+bot = telebot.TeleBot('5348727287:AAGuYtgTjrLiSd6XIywhkRh_RqvWi3m6zlM')
 
 @bot.message_handler(commands=["start"])
 # beginning
@@ -25,15 +25,54 @@ def bot_message(message):
         markup.add(item2)
         markup.add(item3)
         if message.text == 'Определять!' :
-            bot.send_message(message.chat.id, 'Что Вы видите перед собой?',  reply_markup=markup)
-        if message.text == 'Растение':
-            bot.send_message(message.chat.id, 'растение!');
-        if message.text ==  'Кустарник':
-            bot.send_message(message.chat.id, 'растение!');
-        if message.text == 'Дерево':
-            bot.send_message(message.chat.id, ' не растение!');
+                bot.send_message(message.chat.id, 'Что Вы видите перед собой?',  reply_markup=markup)
         elif message.text == 'Играть!':
             bot.send_message(message.from_user.id, 'too work in progress?');
+        # WHICH TYPE
+        if message.text == 'Растение':
+                        markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
+                        item4 = types.KeyboardButton("большие")
+                        item5 = types.KeyboardButton("маленькие")
+                        item6 = types.KeyboardButton("нет(")
+                        markup.add(item4, item5, item6)
+                        bot.send_message(message.chat.id, 'какие цветочки(размер)?', reply_markup=markup)
+        if message.text == 'Кустарник':
+                        markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
+                        item4 = types.KeyboardButton("большие")
+                        item5 = types.KeyboardButton("маленькие")
+                        item6 = types.KeyboardButton("нет(")
+                        markup.add(item4, item5, item6)
+                        bot.send_message(message.chat.id, 'какие цветочки(размер)?', reply_markup=markup)
+        # FLOWER SIZE
+        if message.text == 'большие':
+                                markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
+                                item4 = types.KeyboardButton("желтые")
+                                item5 = types.KeyboardButton("белые")
+                                item6 = types.KeyboardButton("синие")
+                                markup.add(item4, item5, item6)
+                                bot.send_message(message.chat.id, 'какие цветочки(цвет)?', reply_markup=markup)
+        if message.text == 'маленькие':
+                                markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
+                                item4 = types.KeyboardButton("желтые")
+                                item5 = types.KeyboardButton("белые")
+                                item6 = types.KeyboardButton("синие")
+                                markup.add(item4, item5, item6)
+                                bot.send_message(message.chat.id, 'какие цветочки(цвет)?', reply_markup=markup)
+
+        # FOR NO FLOWERS?????
+        #FLOWERS COLOUR
+        if message.text == 'желтые':
+            bot.send_message(message.chat.id, 'мхм');
+        if message.text == 'белые':
+            bot.send_message(message.chat.id, 'ммгуг');
+        if message.text == 'синие':
+            bot.send_message(message.chat.id, 'амммхм');
+        #ЗАПОМНИТЬ ЦВЕТ
+        if message.text == 'Дерево':
+                        bot.send_message(message.chat.id, 'one sec')
+
+
+
 
         #elif message.text == 'Играть!':
            # bot.send_message(message.from_user.id, 'too work in progress?');
